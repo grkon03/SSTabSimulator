@@ -20,5 +20,10 @@ namespace SSTabSim
          * @return result of the verification
          */
         bool isWellNumbered() const;
+
+        // operators
+
+        SSTab operator*(const SSTab &);
+        SSTab &operator*=(const SSTab &);
     };
 }

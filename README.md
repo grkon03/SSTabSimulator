@@ -9,4 +9,13 @@ Semistandard Tableaux Simulator
 ```
 cd src
 mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+
+## execute
+
+```
+./SSTabSimulator
 ```

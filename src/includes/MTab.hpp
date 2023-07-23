@@ -8,7 +8,7 @@ namespace SSTabSim
 {
     class MTab
     {
-    private:
+    protected:
         // variables
 
         // variables
