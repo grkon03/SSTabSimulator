@@ -23,7 +23,9 @@ namespace SSTabSim
 
         // operators
 
-        SSTab operator*(const SSTab &);
+        SSTab operator*(const SSTab &) const;
         SSTab &operator*=(const SSTab &);
     };
+
+    std::ostream &operator<<(std::ostream &os, SSTab sstab);
 }

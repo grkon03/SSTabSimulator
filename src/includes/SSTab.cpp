@@ -32,12 +32,12 @@ namespace SSTabSim
             for (j = 0; j < width; ++j)
             {
                 if (j < underwidth)
-                    if (shape[i][j] < shape[i + 1][j])
+                    if (shape[i][j] <= shape[i + 1][j])
                         return false;
 
                 if (j != width - 1)
                 {
-                    if (shape[i][j] <= shape[i][j + 1])
+                    if (shape[i][j] < shape[i][j + 1])
                         return false;
                 }
             }
@@ -48,9 +48,9 @@ namespace SSTabSim
 
     // operators
 
-    SSTab SSTab::operator*(const SSTab &right)
+    SSTab SSTab::operator*(const SSTab &right) const
     {
-        MTab m = MTab::join(*this, MTab(right.getShape()));
+        MTab m = MTab::join(MTab(shape), MTab(right.shape));
 
         m.slideEmptyCompletely();
 
@@ -62,5 +62,12 @@ namespace SSTabSim
         setTableaux((*this * right).getShape());
 
         return *this;
+    }
+
+    std::ostream &operator<<(std::ostream &os, SSTab sstab)
+    {
+        os << MTab(sstab.getShape());
+
+        return os;
     }
 }
