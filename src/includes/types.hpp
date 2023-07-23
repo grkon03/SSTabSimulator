@@ -8,7 +8,7 @@ namespace SSTabSim
 
     /**
      * @brief Tableaux representation
-     * @note 0 expressing empty square
+     * @note 0 (or less) expressing empty square
      */
     using TableauxShape = vector<vector<int>>;
 }

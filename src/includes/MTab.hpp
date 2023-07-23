@@ -53,11 +53,25 @@ namespace SSTabSim
         // methods
 
         /**
+         * @brief Set the tableaux and set the mxl
+         *
+         * @param tableaux
+         */
+        void setTableaux(TableauxShape tableaux);
+
+        /**
          * @brief Get the mxl
          *
          * @return mxl
          */
         int getMxl() const;
+
+        /**
+         * @brief Get the Tableaux Shape object
+         *
+         * @return TableauxShape
+         */
+        TableauxShape getShape() const;
 
         /**
          * @brief verify whether this tableaux is young tableaux shaped.
@@ -74,6 +88,12 @@ namespace SSTabSim
         bool isNoEmpty() const;
 
         /**
+         * @brief delete all empty squares of tails
+         *
+         */
+        void deleteTailsOfEmpty();
+
+        /**
          * @brief join right to this by right side
          *
          * @param right tableaux joined by right side
@@ -82,6 +102,7 @@ namespace SSTabSim
 
         /**
          * @brief slide a numbered square to a empty square like 15-game ruled.
+         * The square which will be filled is selected randomly from able squares.
          *
          */
         void slideEmptyOnetime();
