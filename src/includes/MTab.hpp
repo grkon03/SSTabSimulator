@@ -50,6 +50,8 @@ namespace SSTabSim
 
         MTab(TableauxShape);
 
+        MTab(MTab &);
+
         // methods
 
         /**

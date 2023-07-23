@@ -81,6 +81,8 @@ namespace SSTabSim
             throw "bad shaped tableaux";
     }
 
+    MTab::MTab(MTab &mtab) : shape(mtab.shape), mxl(mtab.mxl){};
+
     // methods
 
     void MTab::setTableaux(TableauxShape shape)
@@ -133,14 +135,27 @@ namespace SSTabSim
     void MTab::deleteTailsOfEmpty()
     {
         bool end = true;
+        int height = shape.size();
 
-        for (int i = 0; i < shape.size(); ++i)
+        if (height == 0)
+            return;
+
+        for (int i = 0; i < height; ++i)
         {
             if (shape[i][shape[i].size() - 1] <= 0)
             {
+                if (i != height - 1)
+                    if (shape[i].size() == shape[i + 1].size())
+                        continue;
                 end = false;
                 shape[i].pop_back();
             }
+        }
+
+        if (shape[height - 1].size() == 0)
+        {
+            end = false;
+            shape.pop_back();
         }
 
         if (!end)
@@ -212,14 +227,14 @@ namespace SSTabSim
                     continue;
                 }
                 // is bottom and right empty?
-                if (shape[i][j + 1] <= 0 || shape[i + 1][j] <= 0)
+                if ((shape[i][j + 1] <= 0) || (shape[i + 1][j] <= 0))
                     continue;
 
                 list.push_back(tuple<int, int>(i, j));
             }
         }
 
-        if (list.size())
+        if (list.size() == 0)
             return;
 
         std::random_device rd;
@@ -276,10 +291,10 @@ namespace SSTabSim
 
             int dig = __calcDigs(v);
 
-            if (v > mxl)
+            if (dig > mxl)
                 throw "mxl was set incorrectly";
 
-            return std::string(mxl - dig, ' ') + std::to_string(v);
+            return ((mxl == dig) ? "" : std::string(mxl - dig, ' ')) + std::to_string(v);
         }
     }
 
