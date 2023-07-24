@@ -14,7 +14,11 @@ namespace SSTabSim
 
     SSTab::SSTab(MTab mtab) : MTab(mtab){};
 
-    SSTab::SSTab(const SSTab &sstab) : SSTab(sstab.getShape()){};
+    SSTab::SSTab(const SSTab &sstab) : MTab(sstab.getShape())
+    {
+        if (!isWellNumbered())
+            throw "bad numbered tableaux as semistandard";
+    };
 
     // methods
 
@@ -72,7 +76,7 @@ namespace SSTabSim
 
     // static methods
 
-    SSTab SSTab::multiplicationTimeLapse(SSTab &left, SSTab &right)
+    SSTab SSTab::multiplicationTimeLapse(const SSTab &left, const SSTab &right)
     {
         MTab result = join(left, right);
 

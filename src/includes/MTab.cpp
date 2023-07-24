@@ -250,15 +250,20 @@ namespace SSTabSim
 
         if (di == height - 1)
         {
-            // bottom row
+            underwidth = 0;
+        }
+        else
+        {
+            underwidth = shape[di + 1].size();
+        }
 
+        if (dj >= underwidth)
+        {
             shape[di][dj] = shape[di][dj + 1];
             shape[di][dj + 1] = 0;
         }
         else if (dj == width - 1)
         {
-            // the end of row
-
             shape[di][dj] = shape[di + 1][dj];
             shape[di + 1][dj] = 0;
         }
