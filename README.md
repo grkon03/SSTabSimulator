@@ -4,7 +4,7 @@ Semistandard Tableaux Simulator
 
 ## 解説音声について
 
-今はアップロードできないので, 少々お待ちください(7/24 18:30 ごろにアップロードします)
+https://drive.google.com/file/d/1-ocR1oqszFeIq7i244-j6dcB3a9mIedi/view?usp=sharing
 
 ## build
 
