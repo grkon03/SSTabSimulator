@@ -46,7 +46,7 @@ namespace SSTabSim
         return dig;
     }
 
-    MTab MTab::join(MTab left, MTab right)
+    MTab MTab::join(const MTab left, const MTab right)
     {
         TableauxShape lts = left.getShape(), rts = right.getShape();
 
@@ -83,7 +83,7 @@ namespace SSTabSim
             throw "bad shaped tableaux";
     }
 
-    MTab::MTab(MTab &mtab) : shape(mtab.shape), mxl(mtab.mxl){};
+    MTab::MTab(const MTab &mtab) : shape(mtab.shape), mxl(mtab.mxl){};
 
     // methods
 

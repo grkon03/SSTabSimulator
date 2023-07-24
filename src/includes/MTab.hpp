@@ -44,7 +44,7 @@ namespace SSTabSim
          * @param right tabeaux joined by right side
          * @return joined MTab
          */
-        static MTab join(MTab left, MTab right);
+        static MTab join(const MTab left, const MTab right);
 
         // constructors
 
@@ -52,7 +52,7 @@ namespace SSTabSim
 
         MTab(TableauxShape);
 
-        MTab(MTab &);
+        MTab(const MTab &);
 
         // methods
 

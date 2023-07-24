@@ -31,6 +31,10 @@ namespace SSTabSim
 
         SSTab operator*(const SSTab &) const;
         SSTab &operator*=(const SSTab &);
+
+        // static functions
+
+        static SSTab multiplicationTimeLapse(SSTab &, SSTab &);
     };
 
     std::ostream &operator<<(std::ostream &os, SSTab sstab);

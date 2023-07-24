@@ -70,6 +70,23 @@ namespace SSTabSim
         return *this;
     }
 
+    // static methods
+
+    SSTab SSTab::multiplicationTimeLapse(SSTab &left, SSTab &right)
+    {
+        MTab result = join(left, right);
+
+        while (!result.isNoEmpty())
+        {
+            std::cout << result << std::endl;
+            result.slideEmptyOnetime();
+        }
+
+        std::cout << result << std::endl;
+
+        return SSTab(result);
+    }
+
     std::ostream &operator<<(std::ostream &os, SSTab sstab)
     {
         os << MTab(sstab.getShape());
