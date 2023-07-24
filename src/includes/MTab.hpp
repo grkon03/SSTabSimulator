@@ -48,6 +48,8 @@ namespace SSTabSim
 
         // constructors
 
+        MTab();
+
         MTab(TableauxShape);
 
         MTab(MTab &);

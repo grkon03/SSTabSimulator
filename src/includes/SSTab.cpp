@@ -4,11 +4,17 @@ namespace SSTabSim
 {
     // constructors
 
+    SSTab::SSTab() : MTab(){};
+
     SSTab::SSTab(TableauxShape shape) : MTab(shape)
     {
         if (!isWellNumbered())
             throw "bad numbered tableaux as semistandard";
     }
+
+    SSTab::SSTab(MTab mtab) : MTab(mtab){};
+
+    SSTab::SSTab(const SSTab &sstab) : SSTab(sstab.getShape()){};
 
     // methods
 

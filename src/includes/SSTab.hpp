@@ -10,7 +10,13 @@ namespace SSTabSim
     public:
         // constructors
 
+        SSTab();
+
         SSTab(TableauxShape);
+
+        SSTab(MTab);
+
+        SSTab(const SSTab &);
 
         // methods
 

@@ -73,6 +73,8 @@ namespace SSTabSim
 
     // constructors
 
+    MTab::MTab() : shape({}), mxl(0){};
+
     MTab::MTab(TableauxShape shape) : shape(shape), mxl(calculateMxl(shape))
     {
         deleteTailsOfEmpty();
